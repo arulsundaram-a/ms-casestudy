@@ -1,0 +1,77 @@
+arul/admin
+port=3306
+127.0.0.1
+Schema=book_lib
+CREATE TABLE `book_lib`.`user` (
+   `id` VARCHAR(50) NOT NULL,
+   `subscriber_name` VARCHAR(100) NOT NULL,
+   `password` VARCHAR(15) NOT NULL,
+   `email` VARCHAR(100) NOT NULL,
+   PRIMARY KEY (`id`))
+ COMMENT = 'User to store the user details'
+
+CREATE TABLE `book_lib`.`book` (
+  `book_id` INT NOT NULL,
+  `book_name` VARCHAR(150) NOT NULL,
+  `author` VARCHAR(45) NOT NULL,
+  `available_copies` INT NOT NULL,
+  `total_copies` INT NOT NULL,
+  PRIMARY KEY (`book_id`))
+COMMENT = 'Store the book details , avaiilable copies and total copies';
+
+CREATE TABLE `book_lib`.`subscription` (
+  `subscription_name` VARCHAR(100) NOT NULL,
+  `date_subscribed` DATETIME NOT NULL,
+  `date_returned` DATETIME NULL,
+  `book_id` INT NOT NULL)
+COMMENT = 'Maintain the book subscription and  book return details';
+
+
+ALTER TABLE `book_lib`.`subscription` 
+ADD INDEX `sub_book_id_fk_idx` (`book_id` ASC) VISIBLE;
+;
+ALTER TABLE `book_lib`.`subscription` 
+ADD CONSTRAINT `sub_book_id_fk`
+  FOREIGN KEY (`book_id`)
+  REFERENCES `book_lib`.`book` (`book_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+  
+  ALTER TABLE `book_lib`.`user` 
+CHANGE COLUMN `id` `id` VARCHAR(50) NOT NULL ;
+
+ALTER TABLE `book_lib`.`book` 
+CHANGE COLUMN `book_id` `book_id` VARCHAR(10) NOT NULL ;
+
+
+ALTER TABLE `book_lib`.`subscription` 
+DROP FOREIGN KEY `sub_book_id_fk`;
+ALTER TABLE `book_lib`.`subscription` 
+CHANGE COLUMN `book_id` `book_id` VARCHAR(10) NOT NULL ;
+ALTER TABLE `book_lib`.`subscription` 
+ADD CONSTRAINT `sub_book_id_fk`
+  FOREIGN KEY (`book_id`)
+  REFERENCES `book_lib`.`book` (`book_id`);
+
+  ALTER TABLE `book_lib`.`subscription` 
+CHANGE COLUMN `notify` `notify` VARCHAR(3) NULL DEFAULT 'no' ;
+
+ALTER TABLE `book_lib`.`subscription` 
+CHANGE COLUMN `date_subscribed` `date_subscribed` DATETIME NULL DEFAULT NULL ;
+update book_lib.book set available_copies=0 where book_id='B1213'
+  
+
+INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('John', 'John Millar', 'pass1234', 'Arul.Antonysamy@fisglobal.com');
+INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('Mark', 'Mark Waugh ', 'pass1234', 'Arul.Antonysamy@fisglobal.com');
+INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('Peter', 'Peter Parker', 'pass1234', 'Arul.Antonysamy@fisglobal.com');
+
+
+
+INSERT INTO `book_lib`.`book` (`book_id`, `book_name`, `author`, `available_copies`, `total_copies`) VALUES ('B1212', 'History of Amazon Valley', 'Ross Suarez', '0', '2');
+INSERT INTO `book_lib`.`book` (`book_id`, `book_name`, `author`, `available_copies`, `total_copies`) VALUES ('B4232', 'Language Fundamentals', 'H S Parkmay', '5', '5');
+
+INSERT INTO `book_lib`.`subscription` (`book_id`, `subscription_name`, `date_subscribed`, `adate_returned`) VALUES ('B1212', 'John', '12-JUN-2020', '', );
+
+
+ALTER TABLE book_lib.book DROP copies_available ;
