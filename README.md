@@ -1,7 +1,7 @@
-# ms-casestudy
+# microserivice-casestudy readme docuemnt
 1.Microservice Case Study Unit testing docuemnts uploaded in git hub under this folder "UnitTestingDocuements".
 
-2.To run this application we need to create tables in MQSQL and details are in properties file
+2.To run this application we need to create tables in MQSQL and details are in properties file. Refer the DDL file under "cloudnativeconfigfiles"
 
 Need to copy the could config files under this folder "D:\cloud-local", which is available in folder "cloudnativeconfigfiles"
 
