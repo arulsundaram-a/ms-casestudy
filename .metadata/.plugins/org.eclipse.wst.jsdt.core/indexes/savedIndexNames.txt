@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+E:\MicroserviceTraining_CaseStudy\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3667367597.index
