@@ -1,4 +1,4 @@
-# microserivice-casestudy readme docuemnt
+# microserivice-casestudy readme document
 1.Microservice Case Study Unit testing docuemnts uploaded in git hub under this folder "UnitTestingDocuements".
 
 2.To run this application we need to create tables in MQSQL and details are in properties file. Refer the DDL file under "cloudnativeconfigfiles"
