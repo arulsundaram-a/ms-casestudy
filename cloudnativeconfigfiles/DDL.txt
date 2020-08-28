@@ -62,9 +62,9 @@ CHANGE COLUMN `date_subscribed` `date_subscribed` DATETIME NULL DEFAULT NULL ;
 update book_lib.book set available_copies=0 where book_id='B1213'
   
 
-INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('John', 'John Millar', 'pass1234', 'Arul.Antonysamy@fisglobal.com');
-INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('Mark', 'Mark Waugh ', 'pass1234', 'Arul.Antonysamy@fisglobal.com');
-INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('Peter', 'Peter Parker', 'pass1234', 'Arul.Antonysamy@fisglobal.com');
+INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('John', 'John Millar', 'pass1234', 'arul@hotmail.com');
+INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('Mark', 'Mark Waugh ', 'pass1234', 'arul@hotmail.com');
+INSERT INTO `book_lib`.`user` (`id`, `subscriber_name`, `password`, `email`) VALUES ('Peter', 'Peter Parker', 'pass1234', 'arul@hotmail.com');
 
 
 
